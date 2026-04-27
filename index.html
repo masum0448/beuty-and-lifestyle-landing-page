@@ -3,34 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty & Lifestyle - Order Now</title>
+    <title>Beauty & Lifestyle - প্রিমিয়াম স্কিনকেয়ার</title>
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
-        .header { background: #d4a373; color: white; text-align: center; padding: 40px; }
-        .container { max-width: 600px; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        body { font-family: 'Arial', sans-serif; margin: 0; background-color: #fcfaf8; color: #333; line-height: 1.6; }
+        .header { background: #c6ac8f; color: white; text-align: center; padding: 50px 20px; }
+        .container { max-width: 700px; margin: auto; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: -30px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 20px 0; }
+        .gallery img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        .gallery img:hover { transform: scale(1.05); }
+        .pricing { background: #fdf5e6; padding: 20px; border-left: 5px solid #c6ac8f; border-radius: 5px; text-align: center; margin: 20px 0; }
         .input-field { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-        .btn-order { background: #0084ff; color: white; padding: 15px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; width: 100%; font-weight: bold; }
-        .pricing { background: #faedcd; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
+        .btn-order { background: #0084ff; color: white; padding: 15px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; width: 100%; font-weight: bold; }
+        h2 { color: #8d7054; }
     </style>
 </head>
 <body>
 
 <div class="header">
     <h1>Beauty & Lifestyle</h1>
+    <p>আপনার ত্বক ও সৌন্দর্যের নির্ভরযোগ্য ঠিকানা</p>
 </div>
 
 <div class="container">
-    <h2>আপনার অর্ডার ডিটেইলস দিন</h2>
-    
-    <div class="pricing">
-        <p>অফার: ২ পিস সাবান মাত্র ৫৫০ টাকা!</p>
-        <p>ডেলিভারি চার্জ: ফ্রি (ঢাকার ভেতরে)</p>
+    <h2>আমাদের পণ্যসমূহ</h2>
+    <div class="gallery">
+        <img src="soap1.jpg" alt="Soap" onclick="alert('বিস্তারিত: ন্যাচারাল স্কিন ব্রাইটেনিং সাবান')">
+        <img src="soap2.jpg" alt="Soap" onclick="alert('বিস্তারিত: অর্গানিক উপাদান সমৃদ্ধ')">
+        <img src="soap3.jpg" alt="Soap" onclick="alert('বিস্তারিত: ত্বকের গভীর থেকে পরিষ্কার')">
+        <img src="soap4.jpg" alt="Soap" onclick="alert('বিস্তারিত: উজ্জ্বলতা বর্ধক')">
+        <img src="soap5.jpg" alt="Soap" onclick="alert('বিস্তারিত: সতেজ ও সজীব ত্বক')">
     </div>
 
+    <h3>কেন আমাদের সাবান সেরা?</h3>
+    <p>আমাদের এই সাবান প্রাকৃতিক নির্যাস এবং উন্নত মানের উপাদানে তৈরি। এটি নিয়মিত ব্যবহারে আপনার ত্বক হবে উজ্জ্বল ও সজীব।</p>
+    <ul>
+        <li>ত্বকের কালচে দাগ দূর করে।</li>
+        <li>ব্রণ ও র‍্যাশের সমস্যা কমায়।</li>
+        <li>ত্বককে প্রাকৃতিকভাবে ময়েশ্চারাইজ করে।</li>
+    </ul>
+
+    <div class="pricing">
+        <h3 style="margin: 0;">অফার চলছে!</h3>
+        <p>পূর্বের মূল্য: ৩৫০ টাকা/পিস</p>
+        <h2 style="color: #d62828;">বিশেষ মূল্য: ২ পিস মাত্র ৫৫০ টাকা!</h2>
+        <p>ঢাকার ভেতরে ডেলিভারি চার্জ সম্পূর্ণ **ফ্রি**!</p>
+    </div>
+
+    <h3>অর্ডার কনফার্ম করতে নিচের ফরমটি পূরণ করুন:</h3>
     <form id="orderForm">
         <input type="text" id="name" class="input-field" placeholder="আপনার নাম" required>
         <input type="text" id="phone" class="input-field" placeholder="আপনার মোবাইল নম্বর" required>
-        <textarea id="address" class="input-field" placeholder="আপনার ঠিকানা" required></textarea>
+        <textarea id="address" class="input-field" placeholder="আপনার বিস্তারিত ঠিকানা" required></textarea>
         
         <button type="button" class="btn-order" onclick="sendToMessenger()">মেসেঞ্জারে অর্ডার পাঠান</button>
     </form>
@@ -43,13 +66,13 @@
         var address = document.getElementById('address').value;
 
         if(name == "" || phone == "" || address == "") {
-            alert("অনুগ্রহ করে সব তথ্য পূরণ করুন!");
+            alert("সবগুলো ঘর সঠিকভাবে পূরণ করুন!");
             return;
         }
 
-        var message = "আসসালামু আলাইকুম, আমি অর্ডার করতে চাই।%0A%0Aনাম: " + name + "%0Aফোন নম্বর: " + phone + "%0Aঠিকানা: " + address;
+        var message = "আসসালামু আলাইকুম, আমি অর্ডার করতে চাই।%0A%0Aনাম: " + name + "%0Aফোন: " + phone + "%0Aঠিকানা: " + address;
         
-        // এখানে YOUR_PAGE_USERNAME এর জায়গায় আপনার ফেসবুক পেজের ইউজারনেম দিন (যেমন: fb.com/mybrand এর জন্য mybrand)
+        // এখানে আপনার পেজের ইউজারনেম বসান (যেমন: mybrand)
         var messengerUrl = "https://www.facebook.com/profile.php?id=61578238138543?text=" + message; 
         
         window.open(messengerUrl, '_blank');
