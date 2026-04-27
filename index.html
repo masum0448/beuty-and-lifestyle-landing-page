@@ -57,11 +57,13 @@ button{
   font-size:18px;
   cursor:pointer;
 }
-button:hover{background:#e63950}/* MODAL */ .modal{ display:none; position:fixed; top:0;left:0; width:100%;height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; } .modal img{max-width:90%;border-radius:12px}
+button:hover{background:#e63950}.modal{ display:none; position:fixed; top:0;left:0; width:100%;height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; } .modal img{max-width:90%;border-radius:12px}
 
-/* FORM */ .form-box{ display:none; position:fixed; top:50%;left:50%; transform:translate(-50%,-50%); background:#fff; color:#000; padding:20px; border-radius:12px; width:90%;max-width:400px; box-shadow:0 10px 25px rgba(0,0,0,0.2); } .close-btn{ position:absolute; right:12px;top:8px; font-size:22px; cursor:pointer; } input,textarea{ width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc; }
+.form-box{ display:none; position:fixed; top:50%;left:50%; transform:translate(-50%,-50%); background:#fff; color:#000; padding:20px; border-radius:12px; width:90%;max-width:400px; box-shadow:0 10px 25px rgba(0,0,0,0.2); } .close-btn{ position:absolute; right:12px;top:8px; font-size:22px; cursor:pointer; } input,textarea{ width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc; }
 
-/* THANK YOU */ .thankyou{ display:none; position:fixed; top:50%;left:50%; transform:translate(-50%,-50%); background:#fff; color:#000; padding:25px; border-radius:12px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.2); } footer{text-align:center;padding:15px;color:#fff} </style>
+.thankyou{ display:none; position:fixed; top:50%;left:50%; transform:translate(-50%,-50%); background:#fff; color:#000; padding:25px; border-radius:12px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.2); }
+
+footer{text-align:center;padding:15px;color:#fff} </style>
 
 </head>
 <body><header>
@@ -87,7 +89,7 @@ button:hover{background:#e63950}/* MODAL */ .modal{ display:none; position:fixed
 <img src="review2.jpg" onclick="openModal(this.src)">
 <img src="review3.jpg" onclick="openModal(this.src)">
 </div>
-</section><!-- Before After Section --><section class="section">
+</section><section class="section">
 <h3>✨ Before & After Result ✨</h3>
 <div style="position:relative;max-width:400px;margin:auto;">
 <img src="after1.jpg" style="width:100%;border-radius:12px;">
@@ -97,19 +99,12 @@ button:hover{background:#e63950}/* MODAL */ .modal{ display:none; position:fixed
 <div id="slider" style="position:absolute;top:0;bottom:0;width:4px;background:#fff;left:50%;cursor:ew-resize;"></div>
 </div>
 </section><section style="text-align:center;margin:40px;">
-<button onclick="openForm()">🛒 Order Now</button>
-</section><!-- IMAGE MODAL --><div class="modal" id="imgModal" onclick="closeModal()">
+<button onclick="startOrderFlow()">🛒 Order Now</button>
+</section><div class="modal" id="imgModal" onclick="closeModal()">
 <img id="modalImg">
-</div><!-- FORM --><div class="form-box" id="orderForm">
-<span class="close-btn" onclick="closeForm()">×</span>
-<h3>Order Form</h3>
-<input type="text" id="name" placeholder="Your Name">
-<input type="text" id="phone" placeholder="Phone Number">
-<textarea id="address" placeholder="Address"></textarea>
-<button type="button" onclick="sendMessenger()">Submit</button>
-</div><!-- THANK YOU --><div class="thankyou" id="thankyou">
+</div><div class="thankyou" id="thankyou">
 <h2>🎉 Thank You!</h2>
-<p>Your order has been received</p>
+<p>Redirecting to Messenger...</p>
 </div><footer>
 <p>© 2026 Beauty & Lifestyle</p>
 </footer><script>
@@ -121,40 +116,33 @@ function closeModal(){
   document.getElementById('imgModal').style.display='none';
 }
 
-function openForm(){
-  document.getElementById('orderForm').style.display='block';
-}
-function closeForm(){
-  document.getElementById('orderForm').style.display='none';
-}
-
-function sendMessenger(){
-  let name=document.getElementById('name').value;
-  let phone=document.getElementById('phone').value;
-  let address=document.getElementById('address').value;
-
-  let msg=`Order:%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}`;
-
-  // open messenger inbox
-  window.open('https://www.facebook.com/profile.php?id=61578238138543?text='+msg,'_blank');
-
-  // close form
-  closeForm();
-
-  // show thank you message
+function startOrderFlow(){
+  // show thank you first
   document.getElementById('thankyou').style.display='block';
 
   setTimeout(()=>{
     document.getElementById('thankyou').style.display='none';
-  },2500);
+
+    // then open messenger
+    window.open('https://www.facebook.com/profile.php?id=61578238138543','_blank');
+  },2000);
 }
 
-// click outside close form
-window.onclick=function(e){
-  let form=document.getElementById('orderForm');
-  if(e.target==form){
-    form.style.display='none';
-  }
-}
+// slider
+const slider=document.getElementById('slider');
+const overlay=document.getElementById('overlay');
+let isDown=false;
+
+slider.addEventListener('mousedown',()=>isDown=true);
+document.addEventListener('mouseup',()=>isDown=false);
+
+document.addEventListener('mousemove',(e)=>{
+  if(!isDown)return;
+  let rect=slider.parentElement.getBoundingClientRect();
+  let x=e.clientX-rect.left;
+  let percent=(x/rect.width)*100;
+  overlay.style.width=percent+'%';
+  slider.style.left=percent+'%';
+});
 </script></body>
 </html>
