@@ -1,4 +1,4 @@
-here<!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +10,82 @@ body{
   font-family:'Poppins', sans-serif;
   background:linear-gradient(120deg,#f6d365,#fda085);
 }
-header{text-align:center;padding:40px;color:#fff;}
+header{
+  text-align:center;
+  padding:40px;
+  color:#fff;
+}
 header h1{font-size:36px;margin:0}
-.hero{text-align:center;padding:30px;color:#fff;}
-.price{background:#fff;color:#000;padding:20px;border-radius:12px;display:inline-block;margin-top:15px;box-shadow:0 10px 25px rgba(0,0,0,0.15);} 
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:20px;}
-.gallery img{width:100%;border-radius:12px;cursor:pointer;transition:0.3s;}
-.gallery img:hover{transform:scale(1.08);} 
-.section{padding:20px;background:#fff;margin:20px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.1);} 
-button{background:#ff4d6d;color:#fff;padding:15px 30px;border:none;border-radius:10px;font-size:18px;cursor:pointer;} 
-button:hover{background:#e63950} 
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;} 
-.modal img{max-width:90%;border-radius:12px;} 
-.form-box{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#000;padding:20px;border-radius:12px;width:90%;max-width:400px;box-shadow:0 10px 25px rgba(0,0,0,0.2);} 
-input,textarea{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc;} 
-footer{text-align:center;padding:15px;color:#fff;}
-</style>
+.hero{
+  text-align:center;
+  padding:30px;
+  color:#fff;
+}
+.price{
+  background:#fff;
+  color:#000;
+  padding:20px;
+  border-radius:12px;
+  display:inline-block;
+  margin-top:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+.price .old{
+  text-decoration:line-through;
+  color:red;
+  font-weight:600;
+}
+.price .new{
+  font-size:22px;
+  font-weight:700;
+  color:#ff2e63;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+  padding:20px;
+}
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.gallery img:hover{transform:scale(1.08);}
+.section{
+  padding:20px;
+  background:#fff;
+  margin:20px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+button{
+  background:#ff4d6d;
+  color:#fff;
+  padding:15px 30px;
+  border:none;
+  border-radius:10px;
+  font-size:18px;
+  cursor:pointer;
+}
+button:hover{background:#e63950}
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  justify-content:center;
+  align-items:center;
+}
+.modal img{
+  max-width:90%;
+  border-radius:12px;
+}/* FORM MODAL */ .form-box{ display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; color:#000; padding:20px; border-radius:12px; width:90%; max-width:400px; box-shadow:0 10px 25px rgba(0,0,0,0.2); } .close-btn{ position:absolute; top:10px; right:15px; font-size:22px; cursor:pointer; color:#333; font-weight:bold; } input,textarea{ width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc; } footer{text-align:center;padding:15px;color:#fff;} </style>
+
 </head>
 <body><header>
 <h1>Beauty & Lifestyle</h1>
@@ -33,9 +93,9 @@ footer{text-align:center;padding:15px;color:#fff;}
 </header><section class="hero">
 <h2>✨ ত্বক হবে উজ্জ্বল, দাগহীন ও নরম ✨</h2>
 <div class="price">
-<p><del>350৳</del></p>
-<h3>🔥 2 pcs = 550৳ 🔥</h3>
-<p>ঢাকার ভিতরে ফ্রি ডেলিভারি</p>
+<p class="old">পুরোনো দাম: 350৳ প্রতি পিস</p>
+<p class="new">🔥 অফার: 2 পিস = 550৳ 🔥</p>
+<p>ঢাকার ভিতরে ফ্রি ডেলিভারি 🚚</p>
 </div>
 </section><section class="gallery">
 <img src="pic1.jpg" onclick="openModal(this.src)">
@@ -69,9 +129,10 @@ footer{text-align:center;padding:15px;color:#fff;}
 </div>
 </section><section style="text-align:center;margin:40px;">
 <button onclick="openForm()">🛒 অর্ডার করুন এখনই</button>
-</section><div class="modal" id="imgModal" onclick="closeModal()">
+</section><!-- IMAGE MODAL --><div class="modal" id="imgModal" onclick="closeModal()">
 <img id="modalImg">
-</div><div class="form-box" id="orderForm">
+</div><!-- FORM MODAL --><div class="form-box" id="orderForm">
+<span class="close-btn" onclick="closeForm()">×</span>
 <h3>Order Form</h3>
 <input type="text" id="name" placeholder="Your Name">
 <input type="text" id="phone" placeholder="Phone Number">
@@ -87,9 +148,22 @@ function openModal(src){
 function closeModal(){
  document.getElementById('imgModal').style.display='none';
 }
+
 function openForm(){
  document.getElementById('orderForm').style.display='block';
 }
+function closeForm(){
+ document.getElementById('orderForm').style.display='none';
+}
+
+// close form by clicking outside
+window.onclick=function(e){
+ let form=document.getElementById('orderForm');
+ if(e.target==form){
+   form.style.display='none';
+ }
+}
+
 function sendMessenger(){
  let name=document.getElementById('name').value;
  let phone=document.getElementById('phone').value;
