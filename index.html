@@ -3,67 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty & Lifestyle</title>
+    <title>Beauty & Lifestyle - Order Now</title>
     <style>
         body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
         .header { background: #d4a373; color: white; text-align: center; padding: 40px; }
-        .container { max-width: 800px; margin: auto; padding: 20px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
-        .gallery img { width: 100%; border-radius: 8px; cursor: pointer; transition: transform 0.3s; }
-        .gallery img:hover { transform: scale(1.05); }
-        .btn-order { background: #25d366; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; display: block; width: 100%; text-align: center; text-decoration: none; }
-        .pricing { background: #faedcd; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; }
+        .container { max-width: 600px; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .input-field { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        .btn-order { background: #0084ff; color: white; padding: 15px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; width: 100%; font-weight: bold; }
+        .pricing { background: #faedcd; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
 <div class="header">
     <h1>Beauty & Lifestyle</h1>
-    <p>আপনার ত্বক ও সৌন্দর্যের সেরা সঙ্গী</p>
 </div>
 
 <div class="container">
-    <h2>প্রাকৃতিক সাবান: ত্বকের যত্নে সেরা সমাধান</h2>
-    <p>আমাদের এই সাবান প্রাকৃতিক উপাদানে তৈরি যা আপনার ত্বককে করবে উজ্জ্বল ও সজীব।</p>
-
-    <div class="gallery">
-        <img src="soap1.jpg" alt="Soap 1" onclick="alert('ছবি ১ বিস্তারিত')">
-        <img src="soap2.jpg" alt="Soap 2" onclick="alert('ছবি ২ বিস্তারিত')">
-        <img src="soap3.jpg" alt="Soap 3" onclick="alert('ছবি ৩ বিস্তারিত')">
-        <img src="soap4.jpg" alt="Soap 4" onclick="alert('ছবি ৪ বিস্তারিত')">
-        <img src="soap5.jpg" alt="Soap 5" onclick="alert('ছবি ৫ বিস্তারিত')">
-    </div>
-
+    <h2>আপনার অর্ডার ডিটেইলস দিন</h2>
+    
     <div class="pricing">
-        <p>পূর্বের মূল্য: ৩৫০ টাকা/পিস</p>
-        <h2 style="color: #d62828;">অফার: ২ পিস মাত্র ৫৫০ টাকা!</h2>
-        <p>ঢাকার ভেতরে ডেলিভারি চার্জ সম্পূর্ণ ফ্রি!</p>
+        <p>অফার: ২ পিস সাবান মাত্র ৫৫০ টাকা!</p>
+        <p>ডেলিভারি চার্জ: ফ্রি (ঢাকার ভেতরে)</p>
     </div>
 
-    <h3>কেন আমাদের সাবান ব্যবহার করবেন?</h3>
-    <ul>
-        <li>১০০% অর্গানিক উপাদান।</li>
-        <li>ত্বকের দাগ দূর করে উজ্জ্বলতা বাড়ায়।</li>
-        <li>ব্রণ ও র‍্যাশের সমস্যা সমাধান করে।</li>
-    </ul>
-
-    <h3>অর্ডার করুন এখনই</h3>
     <form id="orderForm">
-        <input type="text" id="name" placeholder="আপনার নাম" required style="width:100%; padding:10px; margin-bottom:10px;">
-        <input type="text" id="phone" placeholder="আপনার ফোন নম্বর" required style="width:100%; padding:10px; margin-bottom:10px;">
-        <textarea id="address" placeholder="আপনার ঠিকানা" required style="width:100%; padding:10px; margin-bottom:10px;"></textarea>
-        <button type="button" class="btn-order" onclick="sendToWhatsApp()">WhatsApp-এ অর্ডার কনফার্ম করুন</button>
+        <input type="text" id="name" class="input-field" placeholder="আপনার নাম" required>
+        <input type="text" id="phone" class="input-field" placeholder="আপনার মোবাইল নম্বর" required>
+        <textarea id="address" class="input-field" placeholder="আপনার ঠিকানা" required></textarea>
+        
+        <button type="button" class="btn-order" onclick="sendToMessenger()">মেসেঞ্জারে অর্ডার পাঠান</button>
     </form>
 </div>
 
 <script>
-    function sendToWhatsApp() {
+    function sendToMessenger() {
         var name = document.getElementById('name').value;
         var phone = document.getElementById('phone').value;
         var address = document.getElementById('address').value;
-        var message = "নতুন অর্ডার:%0Aনাম: " + name + "%0Aফোন: " + phone + "%0Aঠিকানা: " + address;
-        var whatsappUrl = "https://wa.me/+8801616594439?text=" + message; // আপনার ফোন নম্বর এখানে বসান
-        window.open(whatsappUrl, '_blank');
+
+        if(name == "" || phone == "" || address == "") {
+            alert("অনুগ্রহ করে সব তথ্য পূরণ করুন!");
+            return;
+        }
+
+        var message = "আসসালামু আলাইকুম, আমি অর্ডার করতে চাই।%0A%0Aনাম: " + name + "%0Aফোন নম্বর: " + phone + "%0Aঠিকানা: " + address;
+        
+        // এখানে YOUR_PAGE_USERNAME এর জায়গায় আপনার ফেসবুক পেজের ইউজারনেম দিন (যেমন: fb.com/mybrand এর জন্য mybrand)
+        var messengerUrl = "https://www.facebook.com/profile.php?id=61578238138543?text=" + message; 
+        
+        window.open(messengerUrl, '_blank');
     }
 </script>
 
