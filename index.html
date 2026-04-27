@@ -1,34 +1,30 @@
-<!DOCTYPE html><html lang="en">
+here<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beauty & Lifestyle</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:'Poppins', sans-serif;background:linear-gradient(135deg,#fdfbfb,#ebedee);} 
-header{text-align:center;padding:40px;background:#111;color:#fff;} 
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:linear-gradient(120deg,#f6d365,#fda085);
+}
+header{text-align:center;padding:40px;color:#fff;}
 header h1{font-size:36px;margin:0}
-.hero{text-align:center;padding:30px;} 
-.hero h2{color:#222;font-size:28px}
-.price{background:#fff;padding:20px;border-radius:12px;display:inline-block;margin-top:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);} 
-.price del{color:red}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:20px;} 
-.gallery img{width:100%;border-radius:12px;cursor:pointer;transition:0.3s;} 
+.hero{text-align:center;padding:30px;color:#fff;}
+.price{background:#fff;color:#000;padding:20px;border-radius:12px;display:inline-block;margin-top:15px;box-shadow:0 10px 25px rgba(0,0,0,0.15);} 
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:20px;}
+.gallery img{width:100%;border-radius:12px;cursor:pointer;transition:0.3s;}
 .gallery img:hover{transform:scale(1.08);} 
-.benefits{padding:20px;} 
-.benefits h3{color:#111}
-.benefits ul{line-height:1.8}
-.review-section{padding:20px;background:#fff;margin:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);} 
-.review-section h3{text-align:center;margin-bottom:10px;} 
-.review-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:15px;} 
-.review-gallery img{width:100%;border-radius:10px;cursor:pointer;transition:0.3s;} 
-.review-gallery img:hover{transform:scale(1.08);} 
-.cta{text-align:center;margin:40px;} 
-button{background:#ff2e63;color:#fff;padding:15px 30px;border:none;border-radius:10px;font-size:18px;cursor:pointer;} 
-button:hover{background:#e61e50} 
+.section{padding:20px;background:#fff;margin:20px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.1);} 
+button{background:#ff4d6d;color:#fff;padding:15px 30px;border:none;border-radius:10px;font-size:18px;cursor:pointer;} 
+button:hover{background:#e63950} 
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;} 
 .modal img{max-width:90%;border-radius:12px;} 
-footer{text-align:center;padding:15px;background:#111;color:#fff;} 
+.form-box{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#000;padding:20px;border-radius:12px;width:90%;max-width:400px;box-shadow:0 10px 25px rgba(0,0,0,0.2);} 
+input,textarea{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc;} 
+footer{text-align:center;padding:15px;color:#fff;}
 </style>
 </head>
 <body><header>
@@ -36,11 +32,10 @@ footer{text-align:center;padding:15px;background:#111;color:#fff;}
 <p>Premium Natural Soap Collection</p>
 </header><section class="hero">
 <h2>✨ ত্বক হবে উজ্জ্বল, দাগহীন ও নরম ✨</h2>
-<p>প্রাকৃতিক উপাদানে তৈরি আমাদের বিশেষ সাবান</p>
 <div class="price">
-<p><del>350৳ / piece</del></p>
+<p><del>350৳</del></p>
 <h3>🔥 2 pcs = 550৳ 🔥</h3>
-<p>ঢাকার ভিতরে ফ্রি ডেলিভারি 🚚</p>
+<p>ঢাকার ভিতরে ফ্রি ডেলিভারি</p>
 </div>
 </section><section class="gallery">
 <img src="pic1.jpg" onclick="openModal(this.src)">
@@ -48,82 +43,40 @@ footer{text-align:center;padding:15px;background:#111;color:#fff;}
 <img src="pic3.jpg" onclick="openModal(this.src)">
 <img src="pic4.jpg" onclick="openModal(this.src)">
 <img src="pic5.jpg" onclick="openModal(this.src)">
-</section><section class="benefits">
-<h3>🌿 সাবানের উপকারিতা:</h3>
+</section><section class="section">
+<h3>🌿 উপকারিতা</h3>
 <ul>
-<li>ব্রণ ও দাগ দূর করতে সাহায্য করে</li>
-<li>ত্বক উজ্জ্বল ও মসৃণ করে</li>
-<li>ত্বকের কালচে ভাব কমায়</li>
-<li>১০০% ন্যাচারাল উপাদান</li>
-<li>সব ধরনের ত্বকের জন্য উপযোগী</li>
-</ul><h3>🧴 উপাদান:</h3>
-<p>Natural oils, herbal extract, glycerin, essential oils</p>
-</section><!-- Customer Review Section --><section class="review-section">
+<li>ব্রণ দূর করে</li>
+<li>স্কিন উজ্জ্বল করে</li>
+<li>দাগ কমায়</li>
+<li>ন্যাচারাল উপাদান</li>
+</ul>
+</section><section class="section">
 <h3>⭐ আমাদের কিছু Happy Customers ⭐</h3>
-<p style="text-align:center;">আমাদের কাস্টমারদের রিভিউ দেখুন</p><div class="review-gallery">
+<div class="gallery">
 <img src="review1.jpg" onclick="openModal(this.src)">
 <img src="review2.jpg" onclick="openModal(this.src)">
 <img src="review3.jpg" onclick="openModal(this.src)">
-<img src="review4.jpg" onclick="openModal(this.src)">
 </div>
-</section><!-- Before After Section --><section class="review-section">
+</section><section class="section">
 <h3>✨ Before & After Result ✨</h3>
-<p style="text-align:center;">আমাদের সাবান ব্যবহারের আগে ও পরে পার্থক্য দেখুন</p><style>
-.compare-container{
-  position:relative;
-  width:100%;
-  max-width:400px;
-  margin:20px auto;
-  overflow:hidden;
-  border-radius:12px;
-}
-.compare-container img{
-  width:100%;
-  display:block;
-}
-.compare-overlay{
-  position:absolute;
-  top:0;
-  left:0;
-  width:50%;
-  overflow:hidden;
-}
-.slider{
-  position:absolute;
-  top:0;
-  bottom:0;
-  width:4px;
-  background:#fff;
-  left:50%;
-  cursor:ew-resize;
-}
-</style><div class="compare-container" id="compareBox">
-<img src="after1.jpg">
-<div class="compare-overlay" id="overlay">
-<img src="before1.jpg">
+<div style="position:relative;max-width:400px;margin:auto;">
+<img src="after1.jpg" style="width:100%;">
+<div id="overlay" style="position:absolute;top:0;left:0;width:50%;overflow:hidden;">
+<img src="before1.jpg" style="width:100%;">
 </div>
-<div class="slider" id="slider"></div>
-</div><p style="text-align:center;font-size:13px;">* Result may vary</p>
-</section><script>
-const slider = document.getElementById('slider');
-const overlay = document.getElementById('overlay');
-let isDown = false;
-
-slider.addEventListener('mousedown',()=> isDown=true);
-document.addEventListener('mouseup',()=> isDown=false);
-
-document.addEventListener('mousemove',(e)=>{
-  if(!isDown) return;
-  let rect = document.getElementById('compareBox').getBoundingClientRect();
-  let x = e.clientX - rect.left;
-  let percent = (x / rect.width) * 100;
-  overlay.style.width = percent + '%';
-  slider.style.left = percent + '%';
-});
-</script><section class="cta">
-<button onclick="orderNow()">🛒 অর্ডার করুন এখনই</button>
+<div id="slider" style="position:absolute;top:0;bottom:0;width:4px;background:#fff;left:50%;cursor:ew-resize;"></div>
+</div>
+</section><section style="text-align:center;margin:40px;">
+<button onclick="openForm()">🛒 অর্ডার করুন এখনই</button>
 </section><div class="modal" id="imgModal" onclick="closeModal()">
 <img id="modalImg">
+</div><div class="form-box" id="orderForm">
+<h3>Order Form</h3>
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="phone" placeholder="Phone Number">
+<textarea id="address" placeholder="Address"></textarea>
+<button onclick="sendMessenger()">Submit</button>
 </div><footer>
 <p>© 2026 Beauty & Lifestyle</p>
 </footer><script>
@@ -134,8 +87,30 @@ function openModal(src){
 function closeModal(){
  document.getElementById('imgModal').style.display='none';
 }
-function orderNow(){
- window.open('https://www.facebook.com/profile.php?id=61578238138543');
+function openForm(){
+ document.getElementById('orderForm').style.display='block';
 }
+function sendMessenger(){
+ let name=document.getElementById('name').value;
+ let phone=document.getElementById('phone').value;
+ let address=document.getElementById('address').value;
+ let msg=`Order Details:%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}`;
+ window.open(`https://www.facebook.com/share/1DYPib4Xks/?text=${msg}`);
+}
+
+// slider
+const slider=document.getElementById('slider');
+const overlay=document.getElementById('overlay');
+let isDown=false;
+slider.addEventListener('mousedown',()=>isDown=true);
+document.addEventListener('mouseup',()=>isDown=false);
+document.addEventListener('mousemove',(e)=>{
+ if(!isDown)return;
+ let rect=slider.parentElement.getBoundingClientRect();
+ let x=e.clientX-rect.left;
+ let percent=(x/rect.width)*100;
+ overlay.style.width=percent+'%';
+ slider.style.left=percent+'%';
+});
 </script></body>
 </html>
